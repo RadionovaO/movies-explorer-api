@@ -1,6 +1,6 @@
 const allowedCors = [
-  'https://diploma.project.nomoredomains.xyz',
-  'diploma.project.nomoredomains.xyz',
+  'https://api.diploma.project.nomoredomains.xyz',
+  'http://api.diploma.project.nomoredomains.xyz',
   'http://localhost:3000',
 ];
 
