@@ -3,6 +3,7 @@ const Movie = require('../models/movie');
 const NotFoundError = require('../utils/errors/notFound');
 const BadRequestError = require('../utils/errors/badRequest');
 const ForbiddenError = require('../utils/errors/forbidden');
+const { INCORRECT_DATA, NOT_FOUND, FORBIDDEN } = require('../utils/consts');
 
 module.exports.createMovie = (req, res, next) => {
   // const { name, link } = req.body;
@@ -12,7 +13,7 @@ module.exports.createMovie = (req, res, next) => {
     .then((movie) => res.status(201).send(movie))
     .catch((err) => {
       if (err instanceof ValidationError) {
-        next(new BadRequestError('Преданы некорректные данные'));
+        next(new BadRequestError(INCORRECT_DATA));
       } else {
         next(err);
       }
@@ -22,10 +23,10 @@ module.exports.createMovie = (req, res, next) => {
 module.exports.deleteMovie = (req, res, next) => {
   const { _id } = req.user;
   Movie.findById(req.params._id)
-    .orFail(new NotFoundError('Фильм не найден'))
+    .orFail(new NotFoundError(NOT_FOUND))
     .then((movie) => {
       if (movie.owner.toString() !== _id) {
-        return Promise.reject(new ForbiddenError('Фильм пренадлежит другому пользователю'));
+        return Promise.reject(new ForbiddenError(FORBIDDEN));
       }
 
       return Movie.deleteOne(movie)

@@ -6,6 +6,7 @@ const NotFoundError = require('../utils/errors/notFound');
 const BadRequestError = require('../utils/errors/badRequest');
 const ConflictError = require('../utils/errors/conflict');
 const { SECRET } = require('../utils/config');
+const { INCORRECT_DATA, DUPLICATE_DATA, NOT_FOUND } = require('../utils/consts');
 
 module.exports.createUser = (req, res, next) => {
   const {
@@ -19,9 +20,9 @@ module.exports.createUser = (req, res, next) => {
     .then(() => res.status(201).send({ email, name }))
     .catch((err) => {
       if (err.name === 'ValidationError') {
-        next(new BadRequestError('Переданы некорректные данные при создании профиля'));
+        next(new BadRequestError(INCORRECT_DATA));
       } else if (err.code === 11000) {
-        next(new ConflictError('Пользователь с таким email уже зарегистрирован.'));
+        next(new ConflictError(DUPLICATE_DATA));
       } else {
         next(err);
       }
@@ -51,7 +52,7 @@ module.exports.login = (req, res, next) => {
 
 module.exports.getCurrentUser = (req, res, next) => {
   User.findById(req.user._id)
-    .orFail(new NotFoundError('Пользователь по указанному _id не найден'))
+    .orFail(new NotFoundError(NOT_FOUND))
     .then((user) => res.send(user))
     .catch((err) => next(err));
 };
@@ -70,11 +71,11 @@ module.exports.updateUser = (req, res, next) => {
       runValidators: true,
     },
   )
-    .orFail(new NotFoundError('Пользователь по указанному _id не найден'))
+    .orFail(new NotFoundError(NOT_FOUND))
     .then((user) => res.send(user))
     .catch((err) => {
       if (err.name === 'ValidationError') {
-        next(new BadRequestError('Переданы некорректные данные при обновлении профиля'));
+        next(new BadRequestError(INCORRECT_DATA));
       } else {
         next(err);
       }

@@ -23,9 +23,9 @@ app.use(cors);
 
 mongoose.connect(MONGODB);
 
-app.use(LIMITER);
-
 app.use(requestLogger);
+
+app.use(LIMITER);
 
 app.use(routes);
 
