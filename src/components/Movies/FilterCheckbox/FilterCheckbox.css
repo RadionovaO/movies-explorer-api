@@ -1,0 +1,41 @@
+.checkbox {
+    padding: 36px 0 0;
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+}
+
+.checkbox__input {
+    background-image: url(../../../images/checkbox-tumboff.svg);
+    width: 36px;
+    height: 20px;
+    cursor: pointer;
+    border: none;
+    transition: 0.3s ease all;
+    appearance: none;
+}
+
+.checkbox__input:hover {
+    opacity: 0.8;
+}
+
+.checkbox__input:checked {
+    background-image: url(../../../images//smalltumb2.svg);
+}
+
+.checkbox__title {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 18px; 
+    margin: 0;
+}
+
+@media screen and (max-width: 400px) {
+    .checkbox {
+        padding: 43px 0 0;
+    }
+
+    .checkbox__title {
+        font-size: 11px;
+    }
+}

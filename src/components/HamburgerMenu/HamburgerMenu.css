@@ -1,0 +1,129 @@
+.hamburger-menu {
+  display: none;
+}
+
+@media screen and (max-width: 790px) {
+  .hamburger-menu {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 0 16px;
+    top: 15px;
+    right: 15px;
+    z-index: 9999999;
+  }
+
+  .hamburger-menu__btn {
+    position: relative;
+    width: 44px;
+    height: 44px;
+    cursor: pointer;
+    z-index: 1000;
+    background: url(../../images/burger.svg);
+  }
+
+  .hamburger-menu__btn {
+    opacity: 0.8;
+  }
+
+  .hamburger-menu__btn:checked {
+    background: url(../../images/close.svg);
+  }
+  
+  .hamburger-menu__container {
+    position: fixed;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    top: 0;
+    left: 25%;
+    right: 0;
+    z-index: 999;
+    height: 0;
+    opacity: 1;
+    transition: 0.5s;
+    overflow: hidden;
+    background: #fff;
+  }
+
+  .hamburger-menu__list {
+    transition: 0.5s;
+    list-style: none;
+    padding-left: 55px;
+    margin-top: 159px;
+  }
+
+  .hamburger-menu__item {
+    font-size: 18px;
+    font-weight: 500;
+    padding-bottom: 30px;
+  }
+
+  .hamburger-menu__link {
+    text-decoration: none;
+    color: #000;
+  }
+
+  .hamburger-menu__link:hover {
+    opacity: 0.8;
+  }
+
+  .hamburger-menu__link_active {
+    text-decoration: none;
+    color: #000;
+    border-bottom: 2px solid #000;
+    padding-bottom: 7px;
+  }
+
+  .hamburger-menu__checkbox {
+    display: none;
+  }
+
+  .hamburger-menu__checkbox:checked ~ .hamburger-menu__container {
+    height: 100%;
+  }
+
+  .hamburger-menu__checkbox:checked ~ .hamburger-menu__btn {
+    background: url(../../images/close.svg) no-repeat center;
+    width: 22px;
+    height: 22px;
+    top: 15px;
+    right: 15px;
+  } 
+
+  .hamburger-menu__button {
+    background: url(../../images/profile.svg) no-repeat;
+    cursor: pointer;
+    border-radius: 50px;
+    border: none;
+    min-width: 100px;
+    min-height: 32px;
+    text-decoration: none;
+    padding: 0;
+    margin-bottom: 88px;
+    margin-left: 55px;
+  }
+
+  .hamburger-menu__button:hover {
+    opacity: 0.8;
+  }
+}
+
+@media screen and (max-width: 400px) {
+    .hamburger-menu__container {
+        left: 0;
+    }
+
+    .hamburger-menu__list {
+        padding-left: 0;
+        margin-top: 144px;
+    }
+
+    .hamburger-menu__button {
+        margin-left: 0;
+        margin-bottom: 46px;
+    }
+}

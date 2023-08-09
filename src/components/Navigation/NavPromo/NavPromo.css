@@ -1,0 +1,47 @@
+.nav-promo {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    align-items: center;
+}
+
+.nav-promo__link {
+    color: #000000;
+    text-decoration: none;
+    font-size: 12px;
+    line-height: 16px;
+}
+
+.nav-promo__link:hover {
+    opacity: 0.8;
+}
+
+.nav-promo__button {
+    color: #FFFFFF;
+    background-color: #000000;
+    border-radius: 3px;
+    border: none;
+    cursor: pointer;
+    font-size: 12px;
+    line-height: 16px;
+    padding: 8px 20px;
+    text-decoration: none;
+}
+
+.nav-promo__button:hover {
+    opacity: 0.8;
+}
+
+@media screen and (max-width: 400px) {
+   .nav-promo {
+    gap: 14px;
+   }
+
+   .nav-promo__link {
+    font-size: 10px;
+   }
+
+   .nav-promo__button {
+    font-size: 10px;
+   }
+}

@@ -1,0 +1,115 @@
+.card {
+    display: flex;
+    flex-direction: column;
+    width: 360px;
+    height: 319px;
+    border-radius: 6px;
+    box-shadow: 0px 4px 30px 0px rgba(0, 0, 0, 0.08);
+    background: #FDFDFD;
+   /* margin: 20px 70px 60px; */
+   margin: 0;
+}
+
+.card__description {
+    display: flex;
+    flex-direction: row;
+    gap: 14px;
+    max-width: 360px;
+    padding: 18px;
+    justify-content: space-between;
+}
+
+.card__name {
+    margin: 0;
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 18px;
+}
+
+.card__duration {
+    margin: 0;
+    color: #A0A0A0;
+    font-family: Inter;
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 18px;
+}
+
+.card__image {
+    max-width: 360px;
+    max-height: 200px;
+    object-fit: cover;
+    padding-bottom: 18px;
+}
+
+ /* .card__button {
+    width: 100px;
+    height: 29px;
+    border-radius: 30px;
+    padding: 18px 130px;  
+} */
+
+.card__delete {
+    padding-bottom: 18px;
+    padding: 0;
+    border-radius: 30px;
+    background-color: #F9F9F9;
+    width: 100px;
+    height: 29px;
+    border: none;
+    cursor: pointer;
+    align-self: center;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 11px;
+    background: url(../../../images/delete-movie.svg);
+}
+
+.card__delete:hover {
+    opacity: 0.8;
+}
+
+@media screen and (max-width: 790px) {
+    .card {
+        width: 342px;
+        height: 309px;
+    }
+
+    .card__image {
+        padding-bottom: 19px;
+        padding-top: 5px;
+    }
+
+    .card__description {
+        padding: 25px 15px 13px;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .card {
+        width: 300px;
+        min-height: 168px;
+        height: 100%;
+    }
+
+    .card__image {
+        padding-bottom: 14px;
+        padding-top: 5px;
+    }
+    
+    .card__delete {
+        margin-bottom: 14px;
+    }
+
+    .card__description {
+        padding: 14px;
+    }
+
+    .card__name {
+        font-size: 12px;
+    }
+    
+    .card__duration {
+        font-size: 12px;
+    }
+}
